@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<title>विकास कार्य की झलकियाँ | किशन सिंह राजपुरोहित | कालूड़ी</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --saffron:#FF9933;
+  --brown:#4A2306;
+  --gold:#FFD08A;
+  --light-gold:#FFE4A0;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{overflow-x:hidden;scroll-behavior:smooth;}
+body{font-family:'Noto Sans Devanagari',sans-serif;background:#fff;color:#2b1605;}
+a{text-decoration:none;}
+img{max-width:100%;height:auto;display:block;}
+
+/* NAVBAR */
+.navbar{
+  background:oklab(57.897% 0.21204 0.09408 / 0.96);
+  backdrop-filter:blur(18px);
+  padding:12px 0;
+  box-shadow:0 3px 20px rgba(255,153,51,0.18);
+  border-bottom:2px solid rgba(255,153,51,0.3);
+  z-index:100;
+}
+.navbar-brand{font-weight:900;color:white!important;font-size:1.2rem;line-height:1.1;}
+.navbar-brand small{display:block;font-size:11px;color:#FFD08A;font-weight:600;}
+.nav-link{color:rgba(255,255,255,0.9)!important;font-weight:700;margin-left:5px;font-size:0.9rem;padding:7px 14px!important;border-radius:30px;transition:all 0.3s;}
+.nav-link:hover{color:#FF9933!important;background:rgba(255,153,51,0.15);}
+.nav-link.active-pg{background:rgba(255,153,51,0.2);color:#FFD08A!important;}
+
+/* BREADCRUMB */
+.bc-bar{background:linear-gradient(135deg,#4A2306,#8A430F);padding:11px 0;border-bottom:2px solid rgba(255,208,138,0.2);}
+.bc-inner{display:flex;align-items:center;gap:8px;font-size:0.84rem;color:rgba(255,255,255,0.7);font-weight:600;}
+.bc-inner a{color:#FFD08A;font-weight:700;transition:color 0.2s;}
+.bc-inner a:hover{color:#FF9933;}
+.bc-inner i{font-size:0.68rem;color:rgba(255,255,255,0.35);}
+
+/* HERO */
+.vikas-hero{background:#fff;padding:52px 0 44px;position:relative;overflow:hidden;}
+.vikas-hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 8% 20%,rgba(255,153,51,0.05) 0%,transparent 55%),
+             radial-gradient(circle at 92% 80%,rgba(74,35,6,0.04) 0%,transparent 55%);
+  pointer-events:none;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,153,51,0.1);border:1px solid rgba(255,153,51,0.3);
+  border-radius:50px;padding:6px 18px;
+  font-size:0.8rem;font-weight:800;color:#D98A22;
+  letter-spacing:0.5px;text-transform:uppercase;margin-bottom:18px;
+}
+.vikas-hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:900;color:#4A2306;line-height:1.2;margin-bottom:16px;}
+.vikas-hero h1 span{background:linear-gradient(135deg,#FF9933,#D98A22);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.lead-txt{font-size:1rem;color:#6b3a12;font-weight:600;line-height:1.8;max-width:600px;}
+.count-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.count-pill{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #FFE4A0;border-radius:50px;padding:8px 18px;box-shadow:0 4px 14px rgba(74,35,6,0.07);}
+.count-pill .num{font-size:1.35rem;font-weight:900;color:#FF9933;line-height:1;}
+.count-pill .lbl{font-size:0.8rem;font-weight:700;color:#6b3a12;line-height:1.2;}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:50px;background:linear-gradient(135deg,#FF9933,#FFD27A);color:#4A2306;font-weight:900;font-size:0.9rem;border:none;box-shadow:0 6px 18px rgba(255,153,51,0.28);transition:all 0.3s;cursor:pointer;}
+.back-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,153,51,0.38);color:#4A2306;}
+
+/* DIVIDER */
+.sec-div{height:3px;background:linear-gradient(90deg,transparent,#FF9933 30%,#FFD27A 65%,transparent);}
+
+/* STATS BAR */
+.stats-bar{background:linear-gradient(135deg,#4A2306,#6A3010);padding:28px 0;border-bottom:1px solid rgba(255,208,138,0.2);}
+.stats-inner{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:16px;}
+.stat-item{text-align:center;color:white;}
+.stat-item .snum{font-size:2.1rem;font-weight:900;color:#FFD08A;line-height:1;display:block;}
+.stat-item .slbl{font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.72);margin-top:3px;display:block;}
+.stat-div{width:1px;height:38px;background:rgba(255,208,138,0.22);}
+@media(max-width:576px){.stat-div{display:none;}.stat-item .snum{font-size:1.6rem;}}
+
+/* FILTER */
+.filter-wrap{background:#fff;padding:22px 0 16px;border-bottom:1px solid #f0e0c8;position:sticky;top:72px;z-index:50;}
+.filter-inner{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.filter-lbl{font-size:0.8rem;font-weight:800;color:#8A430F;text-transform:uppercase;letter-spacing:0.5px;margin-right:3px;}
+.fbtn{padding:6px 16px;border-radius:50px;border:1.5px solid #FFE4A0;background:#fff;color:#6b3a12;font-weight:700;font-size:0.82rem;cursor:pointer;transition:all 0.22s;font-family:'Noto Sans Devanagari',sans-serif;white-space:nowrap;}
+.fbtn:hover{border-color:#FF9933;color:#4A2306;background:rgba(255,153,51,0.07);}
+.fbtn.active{background:linear-gradient(135deg,#FF9933,#FFD27A);border-color:#FF9933;color:#4A2306;box-shadow:0 4px 14px rgba(255,153,51,0.28);}
+
+/* SECTION HEAD */
+.sec-head{margin-bottom:32px;}
+.sec-head h2{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:900;color:#4A2306;margin-bottom:5px;}
+.sec-head p{color:#6b3a12;font-weight:600;font-size:0.92rem;}
+.sec-line-s{width:55px;height:4px;border-radius:4px;background:linear-gradient(90deg,#FF9933,#FFD27A);margin:8px 0 12px;}
+
+/* GALLERY SECTION */
+.gallery-sec{padding:44px 0 80px;background:#fff;}
+
+/* MASONRY */
+.masonry{columns:4;column-gap:14px;width:100%;}
+@media(max-width:1199px){.masonry{columns:3;}}
+@media(max-width:767px){.masonry{columns:2;column-gap:9px;}}
+@media(max-width:380px){.masonry{columns:2;column-gap:7px;}}
+
+/* PHOTO CARD */
+.pcard{
+  break-inside:avoid;
+  margin-bottom:14px;
+  border-radius:13px;
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 4px 16px rgba(74,35,6,0.09);
+  border:2px solid #f0e0c8;
+  background:#f8f2e8;
+  transition:transform 0.32s cubic-bezier(.25,.8,.25,1),
+             box-shadow 0.32s cubic-bezier(.25,.8,.25,1),
+             border-color 0.22s;
+  will-change:transform;
+}
+@media(max-width:767px){.pcard{margin-bottom:9px;border-radius:9px;}}
+
+.pcard:hover{
+  transform:scale(1.045) translateY(-5px);
+  box-shadow:0 22px 55px rgba(74,35,6,0.22);
+  border-color:#FF9933;
+  z-index:10;
+}
+.pcard img{
+  width:100%;height:auto;
+  object-fit:cover;
+  transition:transform 0.45s ease;
+}
+.pcard:hover img{transform:scale(1.07);}
+
+/* Caption overlay */
+.pcap{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:30px 12px 12px;
+  background:linear-gradient(transparent,rgba(74,35,6,0.9));
+  opacity:0;transition:opacity 0.3s;pointer-events:none;
+}
+.pcard:hover .pcap{opacity:1;}
+.pcap h6{color:#FFD08A;font-weight:900;font-size:0.85rem;margin-bottom:2px;line-height:1.3;}
+.pcap p{color:rgba(255,255,255,0.8);font-size:0.74rem;margin:0;font-weight:600;}
+
+/* Number badge */
+.pnum{
+  position:absolute;top:9px;left:9px;
+  width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(135deg,#FF9933,#FFD27A);
+  color:#4A2306;font-size:0.68rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.28s;
+  box-shadow:0 2px 8px rgba(74,35,6,0.18);
+}
+.pcard:hover .pnum{opacity:1;}
+
+/* Tag */
+.ptag{
+  position:absolute;top:9px;right:9px;
+  padding:3px 9px;border-radius:50px;
+  font-size:0.65rem;font-weight:800;
+  background:rgba(74,35,6,0.72);color:#FFD08A;
+  backdrop-filter:blur(4px);opacity:0;transition:opacity 0.28s;
+}
+.pcard:hover .ptag{opacity:1;}
+
+/* Touch devices */
+@media(hover:none){
+  .pcap{opacity:1;}
+  .pnum{opacity:1;}
+  .ptag{opacity:1;}
+  .pcard:hover{transform:none;}
+}
+
+/* LIGHTBOX */
+.lb-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(13,5,0,0.96);
+  z-index:9999;align-items:center;justify-content:center;
+  padding:20px;backdrop-filter:blur(10px);
+}
+.lb-overlay.open{display:flex;}
+.lb-inner{position:relative;max-width:92vw;max-height:88vh;display:flex;flex-direction:column;align-items:center;}
+.lb-img-wrap{border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.6);border:3px solid rgba(255,153,51,0.3);max-height:80vh;}
+.lb-img-wrap img{display:block;max-width:90vw;max-height:78vh;object-fit:contain;border-radius:12px;}
+.lb-caption{margin-top:14px;text-align:center;}
+.lb-caption h4{color:#FFD08A;font-weight:900;font-size:0.98rem;margin-bottom:3px;}
+.lb-caption p{color:rgba(255,255,255,0.62);font-size:0.82rem;margin:0;}
+.lb-close{position:fixed;top:14px;right:14px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.2);color:white;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:10000;}
+.lb-close:hover{background:#FF9933;border-color:#FF9933;color:#4A2306;}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,153,51,0.15);border:1.5px solid rgba(255,153,51,0.35);color:#FFD08A;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.22s;z-index:10000;}
+.lb-nav:hover{background:#FF9933;color:#4A2306;border-color:#FF9933;}
+.lb-prev{left:10px;}
+.lb-next{right:10px;}
+.lb-counter{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(74,35,6,0.72);backdrop-filter:blur(8px);border:1px solid rgba(255,153,51,0.3);border-radius:50px;padding:5px 16px;color:#FFD08A;font-size:0.8rem;font-weight:800;z-index:10000;}
+
+/* FOOTER */
+.footer{background:#1a0800;color:white;padding:60px 0 22px;border-top:3px solid #FF9933;}
+.footer h4{font-weight:900;color:#FFD08A;margin-bottom:16px;}
+.footer p{color:#ddd;line-height:1.85;}
+.footer a{display:block;color:#ccc;margin-bottom:10px;transition:0.3s;}
+.footer a:hover{color:#FF9933;padding-left:6px;}
+.footer-btm{border-top:1px solid rgba(255,255,255,0.12);margin-top:30px;padding-top:18px;text-align:center;color:#aaa;}
+
+/* FLOAT */
+.wa-float{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:28px;color:white;z-index:998;box-shadow:0 12px 28px rgba(37,211,102,0.42);transition:all 0.3s;}
+.wa-float:hover{color:white;transform:scale(1.1);}
+.top-btn{position:fixed;left:20px;bottom:20px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#FF9933,#FFD27A);display:none;align-items:center;justify-content:center;color:#4A2306;z-index:998;font-size:16px;box-shadow:0 12px 28px rgba(255,153,51,0.38);transition:all 0.3s;}
+.top-btn:hover{color:#4A2306;transform:scale(1.1);}
+
+/* FADE IN */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.pcard{animation:fadeUp 0.5s ease both;}
+.pcard:nth-child(1){animation-delay:0.04s}.pcard:nth-child(2){animation-delay:0.08s}.pcard:nth-child(3){animation-delay:0.12s}.pcard:nth-child(4){animation-delay:0.16s}.pcard:nth-child(5){animation-delay:0.20s}.pcard:nth-child(6){animation-delay:0.24s}.pcard:nth-child(7){animation-delay:0.28s}.pcard:nth-child(8){animation-delay:0.32s}.pcard:nth-child(9){animation-delay:0.36s}.pcard:nth-child(10){animation-delay:0.40s}.pcard:nth-child(11){animation-delay:0.44s}.pcard:nth-child(12){animation-delay:0.48s}.pcard:nth-child(13){animation-delay:0.52s}.pcard:nth-child(14){animation-delay:0.56s}.pcard:nth-child(15){animation-delay:0.60s}.pcard:nth-child(16){animation-delay:0.64s}.pcard:nth-child(17){animation-delay:0.68s}.pcard:nth-child(18){animation-delay:0.72s}
+@media(prefers-reduced-motion:reduce){.pcard{animation:none;}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      किशन सिंह राजपुरोहित
+      <small>सरपंच | कालूड़ी</small>
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html#about">परिचय</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#sankalp">संकल्प</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#campaign">अभियान</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#gallery">गैलरी</a></li>
+        <li class="nav-item"><a class="nav-link active-pg" href="vikas-karya.html">विकास कार्य</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contact">संपर्क</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div style="margin-top:72px;">
+  <div class="bc-bar">
+    <div class="container">
+      <div class="bc-inner">
+        <a href="index.html"><i class="fas fa-home me-1"></i>होम</a>
+        <i class="fas fa-chevron-right"></i>
+        <span style="color:white;">विकास कार्य की कुछ झलकियाँ</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="vikas-hero">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <div class="eyebrow"><i class="fas fa-hammer"></i>ग्राम कालूड़ी</div>
+        <h1>विकास कार्य की <span>कुछ झलकियाँ</span></h1>
+        <p class="lead-txt">
+          ग्राम कालूड़ी में सड़क निर्माण, नल-जल योजना, नाली निर्माण, स्वच्छता अभियान और अन्य जनहित कार्यों की वास्तविक तस्वीरें — जमीन पर हो रहे विकास के जीवंत प्रमाण।
+        </p>
+        <!-- <div class="count-pills">
+          <div class="count-pill"><span class="num"></span><span class="lbl"></span></div> -->
+          <!-- <div class="count-pill"><span class="num">5+</span><span class="lbl">प्रकार के कार्य</span></div> -->
+          <!-- <div class="count-pill"><span class="num">2025-26</span><span class="lbl">कार्यकाल</span></div> -->
+        </div>
+      </div>
+      <div class="col-lg-5 d-flex justify-content-center justify-content-lg-end">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i>वापस जाएं</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sec-div"></div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item"><span class="snum">500+</span><span class="slbl">परिवारों की सेवा</span></div>
+      <div class="stat-div"></div>
+      <div class="stat-item"><span class="snum">15+</span><span class="slbl">वर्ष अनुभव</span></div>
+      <div class="stat-div"></div>
+      <div class="stat-item"><span class="snum">20+</span><span class="slbl">जनहित कार्य</span></div>
+      <div class="stat-div"></div>
+      <div class="stat-item"><span class="snum">100%</span><span class="slbl">पारदर्शिता</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery-sec">
+  <div class="container">
+
+    <div class="sec-head">
+      <h2>सभी विकास कार्य</h2>
+      <div class="sec-line-s"></div>
+      <p>तस्वीर पर क्लिक करें बड़ा देखने के लिए &nbsp;•&nbsp; Hover करें विवरण देखने के लिए</p>
+    </div>
+
+    <!-- FILTER BAR -->
+    <!-- <div class="filter-wrap">
+      <div class="filter-inner">
+        <span class="filter-lbl"><i class="fas fa-filter me-1"></i>फ़िल्टर:</span>
+        <button class="fbtn active" data-cat="all">सभी</button>
+        <button class="fbtn" data-cat="sadak">सड़क / नाली</button>
+        <button class="fbtn" data-cat="jal">जल योजना</button>
+        <button class="fbtn" data-cat="safai">सफाई / JCB</button>
+        <button class="fbtn" data-cat="nirman">निर्माण कार्य</button>
+        <button class="fbtn" data-cat="anay">अन्य</button>
+      </div>
+    </div> -->
+
+    <div style="height:28px;"></div>
+
+    <!-- MASONRY GRID -->
+    <div class="masonry" id="masonryGrid">
+
+      <!-- 1: पाइपलाइन + पत्थर — लधौनियों की वास गली (27-02-2026) -->
+      <div class="pcard" data-cat="jal" data-index="0"
+           data-title="युवा शक्ति के साथ स्वच्छता की ओर एक कदम" data-desc="">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592045/vikas1_ddcp8i.jpg" alt="नल-जल पाइपलाइन कार्य">
+        <div class="pnum">01</div>
+        <!-- <div class="ptag">जल योजना</div> -->
+        <div class="pcap">
+          <h6>युवाओं द्वारा स्वच्छता अभियान में सहभागिता</h6>
+          <p></p>
+        </div>
+      </div>
+
+      <!-- 2: टूटी सड़क / नाली — मेगा हाइवे भरोनी गली (26-02-2026) -->
+      <div class="pcard" data-cat="sadak" data-index="1"
+           data-title="इंटरलॉकिंग सड़क/मार्ग निर्माण कार्य" data-desc="">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592045/vikas2_pjcubn.jpg" alt="जर्जर नाली निरीक्षण">
+        <div class="pnum">02</div>
+        <!-- <div class="ptag">सड़क / नाली</div> -->
+        <div class="pcap">
+          <h6>विकास की राह पर बढ़ता हमारा गांव</h6>
+          <p></p>
+        </div>
+      </div>
+
+      <!-- 3: JCB खुदाई — मंगलसिंह / भंवरसिंह घर (22-01-2026) -->
+      <div class="pcard" data-cat="safai" data-index="2"
+           data-title="सीसी रोड निर्माण" data-desc="सुजाणियों के सभा भवन से ओम सिंह / मोहन सिंह के घर तक सीसी रोड">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592046/vikas3_fv9fax.jpg" alt="JCB खुदाई कार्य">
+        <div class="pnum">03</div>
+        <!-- <div class="ptag">सड़क / नाली</div> -->
+        <div class="pcap">
+          <h6>सीसी रोड निर्माण</h6>
+          <p></p>
+        </div>
+      </div>
+     <!-- completed -->
+      <!-- 4: पक्की सड़क (पेवर ब्लॉक / पत्थर) — देवीसिंह/भीमसिंह के आगे (05-01-2026) -->
+      <div class="pcard" data-cat="sadak" data-index="3"
+           data-title="इंटरलॉकिंग सड़क निर्माण कार्य — कालूड़ी" data-desc="">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592047/vikas4_ffagat.jpg" alt="पक्की गली निर्माण">
+        <div class="pnum">04</div>
+        <!-- <div class="ptag">सड़क / नाली</div> -->
+        <div class="pcap">
+          <h6>इंटरलॉकिंग सड़क निर्माण </h6>
+          <p></p>
+        </div>
+      </div>
+      <!-- completed -->
+
+      <!-- 5: गंदा पानी जमाव — लधौनियों की वास गली (26-02-2026) -->
+      <div class="pcard" data-cat="sadak" data-index="4"
+           data-title="चौकटा गड्ढा निर्माण" data-desc="वाल सिंह के घर के पास सोखता गड्ढा (Chaukta/Soakta) निर्माण कार्य">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592047/vikas5_gxwqwf.jpg" alt="गंदे पानी का जमाव">
+        <div class="pnum">05</div>
+        <!-- <div class="ptag">निर्माण कार्य</div> -->
+        <div class="pcap">
+          <h6>चौकटा गड्ढा निर्माण</h6>
+          <p></p>
+        </div>
+      </div> 
+      <!-- completed -->
+
+      <!-- 6: कच्ची गली — लधौनियों की आम गली (23-02-2026) -->
+      <div class="pcard" data-cat="anay" data-index="5"
+           data-title="निकासी निर्माण कार्य" data-desc="मोहन सिंह के घर के पास निकासी निर्माण कार्य">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592045/vikas6_t0inee.jpg" alt="ग्राम गली सर्वेक्षण">
+        <div class="pnum">06</div>
+        <!-- <div class="ptag">अन्य</div> -->
+        <div class="pcap">
+          <h6>निकासी निर्माण कार्य</h6>
+          <p></p>
+        </div>
+      </div>
+    <!-- completed -->
+      <!-- 7: पिंक स्लैब + पाइप — मगराज सिंह के घर के पास (25-12-2025) -->
+      <div class="pcard" data-cat="nirman" data-index="6"
+           data-title="परंपरागत जल संरचना — टांका" data-desc="ग्राम कालूड़ी में पुरानी जल संरचना (टांका) का निरीक्षण एवं पुनरुद्धार योजना">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592045/vikas7_fevo1g.jpg" alt="स्लैब व पाइपलाइन">
+        <div class="pnum">07</div>
+        <!-- <div class="ptag">निर्माण कार्य</div> -->
+        <div class="pcap">
+          <h6>परंपरागत जल संरचना — टांका</h6>
+          <p></p>
+        </div>
+      </div>
+      <!-- completed -->
+
+      <!-- 8: सीमेंट कुएं / चैंबर — रात में (15-01-2026) -->
+      <div class="pcard" data-cat="jal" data-index="7"
+           data-title="चौकटा गड्ढा निर्माण" data-desc="मंगल सिंह / भंवर सिंह के घर के पास सोखता गड्ढा (Chaukta/Soakta) निर्माण कार्य">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592045/vikas8_nv0e0k.jpg" alt="जल चैंबर निर्माण">
+        <div class="pnum">08</div>
+        <!-- <div class="ptag">जल योजना</div> -->
+        <div class="pcap">
+          <h6>चौकटा गड्ढा निर्माण</h6>
+          <p></p>
+        </div>
+      </div>
+      <!-- completed -->
+
+      <!-- 9: JCB सफाई — स्कूल एवं मेगा हाइवे (15-01-2026) -->
+      <div class="pcard" data-cat="safai" data-index="8"
+           data-title="स्कूल व हाइवे सफाई अभियान" data-desc="JCB मशीन द्वारा स्कूल एवं मेगा हाइवे क्षेत्र की सफाई — 15 जनवरी 2026">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592044/vikas9_ki2ewe.jpg" alt="स्कूल व हाइवे सफाई">
+        <div class="pnum">09</div>
+        <!-- <div class="ptag">सफाई / JCB</div> -->
+        <div class="pcap">
+          <h6>स्कूल व हाइवे सफाई</h6>
+          <p></p>
+        </div>
+      </div>
+       <!-- completed -->
+      <!-- 10: गोल गुम्बद (टांका / जल संरचना) — किशन सिंह के साथ -->
+      <!-- <div class="pcard" data-cat="jal" data-index="9"
+           data-title="परंपरागत जल संरचना — टांका" data-desc="ग्राम कालूड़ी में पुरानी जल संरचना (टांका) का निरीक्षण एवं पुनरुद्धार योजना">
+        <img src="vikas10.jpeg" alt="परंपरागत जल संरचना टांका">
+        <div class="pnum">10</div>
+         <div class="ptag">जल योजना</div> -->
+        <!-- <div class="pcap">
+          <h5>परंपरागत जल संरचना — टांका</h5>
+          <p>ग्राम कालूड़ी — जल संरक्षण</p>
+        </div>
+      </div> -->
+
+      <!-- 11: नाली / चैंबर निर्माण — मोहन सिंह घर (15-01-2026) -->
+      <div class="pcard" data-cat="nirman" data-index="10"
+           data-title="चौकटा गड्ढा निर्माण कार्य" data-desc="बेहतर जल निकासी हेतु चौकटा गड्ढा निर्माण">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592046/vikas11_ybk5pl.jpg" alt="नाली चैंबर निर्माण">
+        <div class="pnum">10</div>
+        <!-- <div class="ptag">निर्माण कार्य</div> -->
+        <div class="pcap">
+          <h6>चौकटा गड्ढा निर्माण कार्य – कालूड़ी
+</h6>
+          <!-- <p>मोहन सिंह के घर के पास — 15 जनवरी 2026</p> -->
+        </div>
+      </div>
+
+      <!-- 12: JCB खुदाई — वाल सिंह घर (28-12-2025) -->
+      <div class="pcard" data-cat="safai" data-index="11"
+           data-title="निकासी निर्माण कार्य" data-desc="बाथरूम के अपशिष्ट जल के उचित निकास हेतु निकासी निर्माण कार्य — कालूड़ी">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592046/vikas12_kvpt8x.jpg" alt="JCB नाली खुदाई">
+        <div class="pnum">11</div>
+        <!-- <div class="ptag">सफाई / JCB</div> -->
+        <div class="pcap">
+          <h6>निकासी निर्माण कार्य</h6>
+          <p></p>
+        </div>
+      </div>
+      <!-- completed -->
+
+      <!-- 13: इंटरलॉकिंग पेवर ब्लॉक (close-up) -->
+      <div class="pcard" data-cat="nirman" data-index="12"
+           data-title="चौकटा गड्ढा निर्माण" data-desc="लधोनियों का वास, आम गली में चौकटा गड्ढा निर्माण कार्य — कालूड़ी">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592046/vikas13_mtyck2.jpg" alt="इंटरलॉकिंग पेवर ब्लॉक">
+        <div class="pnum">12</div>
+        <!-- <div class="ptag">निर्माण कार्य</div> -->
+        <div class="pcap">
+          <h6>चौकटा गड्ढा निर्माण</h6>
+          <p></p>
+        </div>
+      </div>
+     <!-- completed -->
+      <!-- 14: सीसी रोड निर्माण — सुजाणियों के सभा भवन से (25-12-2025) -->
+      <div class="pcard" data-cat="sadak" data-index="13"
+           data-title="चौकटा गड्ढा निर्माण" data-desc="">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592046/vikas14_yvlxsy.jpg" alt="सीसी रोड निर्माण">
+        <div class="pnum">13</div>
+        <!-- <div class="ptag">सड़क / नाली</div> -->
+        <div class="pcap">
+          <h6>चौकटा गड्ढा निर्माण</h6>
+          <!-- <p>सभा भवन से घर तक — 25 दिसंबर 2025</p> -->
+        </div>
+      </div>
+
+      <!-- 15: गिट्टी व सामग्री — अचलोनी परिवार से दवे घर (25-12-2025) -->
+      <div class="pcard" data-cat="nirman" data-index="14"
+           data-title="गली सुधार एवं समतलीकरण कार्य" data-desc="देवीसिंह/भीमसिंह के घर आगे के गली सुधार एवं समतलीकरण कार्य — कालूड़ी">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592046/vikas15_avq7za.jpg" alt="निर्माण सामग्री व्यवस्था">
+        <div class="pnum">14</div>
+        <!-- <div class="ptag">निर्माण कार्य</div> -->
+        <div class="pcap">
+          <h6>गली सुधार एवं समतलीकरण कार्य</h6>
+          <p></p>
+        </div>
+      </div>
+
+      <!-- 16: स्वयं सफाई करते किशन सिंह -->
+      <!-- <div class="pcard" data-cat="safai" data-index="15"
+           data-title="चौकटा गड्ढा निर्माण">
+        <img src="vikas16.jpeg" alt="">
+        <div class="pnum">16</div>
+         <div class="ptag">सफाई / JCB</div> -->
+        <!-- <div class="pcap">
+          <h5>चौकटा गड्ढा निर्माण</h5>
+          <p>मंगलसिंह / भंवरसिंह के घर के पास चौकटा गड्ढा निर्माण</p>
+        </div>
+      </div>    -->
+        <!-- completed -->
+      <!-- 17: JCB सफाई — स्कूल एवं मेगा हाइवे (duplicate angle) -->
+      <div class="pcard" data-cat="safai" data-index="16"
+           data-title="चौकटा गड्ढा निर्माण कार्य" data-desc="मेगा हाईवे से भूरोनी गली में चौकटा गड्ढा निर्माण कार्य — कालूड़ी">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592047/vikas17_hgbvyv.jpg" alt="हाइवे सफाई JCB">
+        <div class="pnum">15</div>
+        <!-- <div class="ptag">सफाई / JCB</div> -->
+        <div class="pcap">
+          <h6>चौकटा गड्ढा निर्माण कार्य</h6>
+          <p></p>
+        </div>
+      </div>
+
+      <!-- 18: JCB खुदाई — मंगलसिंह / भंवरसिंह (22-01-2026) same area angle 2 -->
+      <div class="pcard" data-cat="jal" data-index="17"
+           data-title="चौकटा गड्ढा निर्माण कार्य" data-desc="लधोनियों की वास गली में चौकटा गड्ढा निर्माण कार्य — कालूड़ी">
+        <img src="https://res.cloudinary.com/dfs408ys1/image/upload/v1781592047/vikas18_miy5da.jpg" alt="पाइपलाइन हेतु JCB खुदाई">
+        <div class="pnum">16</div>
+        <!-- <div class="ptag">जल योजना</div> -->
+        <div class="pcap">
+          <h6>चौकटा गड्ढा निर्माण कार्य</h6>
+          <p></p>
+        </div>
+      </div>
+
+    </div><!-- end masonry -->
+
+    <div id="emptyState" style="display:none;text-align:center;padding:60px 20px;color:#8A430F;">
+      <i class="fas fa-images" style="font-size:3rem;opacity:0.3;margin-bottom:14px;display:block;"></i>
+      <p style="font-weight:700;">इस श्रेणी में कोई तस्वीर नहीं है।</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lightbox">
+  <button class="lb-close" id="lbClose"><i class="fas fa-times"></i></button>
+  <button class="lb-nav lb-prev" id="lbPrev"><i class="fas fa-chevron-left"></i></button>
+  <button class="lb-nav lb-next" id="lbNext"><i class="fas fa-chevron-right"></i></button>
+  <div class="lb-inner">
+    <div class="lb-img-wrap">
+      <img src="" alt="" id="lbImg">
+    </div>
+    <div class="lb-caption">
+      <h4 id="lbTitle"></h4>
+      <p id="lbDesc"></p>
+    </div>
+  </div>
+  <div class="lb-counter" id="lbCounter">1 / 18</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h4>किशन सिंह राजपुरोहित</h4>
+        <p>सरपंच | कालूड़ी</p>
+        <p>विकसित कालूड़ी • समृद्ध कालूड़ी</p>
+        <p>युवा सोच • मजबूत नेतृत्व</p>
+      </div>
+      <div class="col-lg-4">
+        <h4>त्वरित लिंक</h4>
+        <a href="index.html#about">परिचय</a>
+        <a href="index.html#sankalp">संकल्प</a>
+        <a href="index.html#campaign">अभियान</a>
+        <a href="index.html#gallery">गैलरी</a>
+        <a href="vikas-karya.html">विकास कार्य</a>
+        <a href="index.html#contact">संपर्क</a>
+      </div>
+      <div class="col-lg-4">
+        <h4>सोशल मीडिया</h4>
+        <a target="_blank" href="https://www.instagram.com/kishansingh_kaludi25?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram me-2"></i>Instagram</a>
+        <a target="_blank" href="https://wa.me/919950365753?text=नमस्कार%20किशन%20सिंह%20जी"><i class="fab fa-whatsapp me-2"></i>WhatsApp</a>
+        <a href="tel:9950365753"><i class="fas fa-phone me-2"></i>9950365753</a>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <p>© 2025 किशन सिंह कालूड़ी. All Rights Reserved.</p>
+      <p>Designed & Developed by NEXT DUKAAN</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919950365753?text=नमस्कार%20किशन%20सिंह%20जी" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+<a href="#" class="top-btn" id="topBtn"><i class="fas fa-arrow-up"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// FILTER
+var fbts = document.querySelectorAll('.fbtn');
+var cards = document.querySelectorAll('.pcard');
+var empty = document.getElementById('emptyState');
+fbts.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    fbts.forEach(function(b){ b.classList.remove('active'); });
+    this.classList.add('active');
+    var cat = this.dataset.cat;
+    var vis = 0;
+    cards.forEach(function(c){
+      var show = cat === 'all' || c.dataset.cat === cat;
+      c.style.display = show ? '' : 'none';
+      if(show) vis++;
+    });
+    empty.style.display = vis === 0 ? 'block' : 'none';
+  });
+});
+
+// LIGHTBOX
+var lb = document.getElementById('lightbox');
+var lbImg = document.getElementById('lbImg');
+var lbTitle = document.getElementById('lbTitle');
+var lbDesc = document.getElementById('lbDesc');
+var lbCtr = document.getElementById('lbCounter');
+var lbClose = document.getElementById('lbClose');
+var lbPrev = document.getElementById('lbPrev');
+var lbNext = document.getElementById('lbNext');
+var curIdx = 0;
+
+function visCards(){ return Array.from(cards).filter(function(c){ return c.style.display !== 'none'; }); }
+
+function showSlide(vis, idx){
+  if(!vis[idx]) return;
+  var c = vis[idx];
+  lbImg.src = c.querySelector('img').src;
+  lbImg.alt = c.querySelector('img').alt;
+  lbTitle.textContent = c.dataset.title || '';
+  lbDesc.textContent = c.dataset.desc || '';
+  lbCtr.textContent = (idx+1) + ' / ' + vis.length;
+}
+
+function openLB(card){
+  var vis = visCards();
+  curIdx = vis.indexOf(card);
+  showSlide(vis, curIdx);
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLB(){
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  lbImg.src = '';
+}
+
+cards.forEach(function(c){ c.addEventListener('click', function(){ openLB(this); }); });
+lbClose.addEventListener('click', closeLB);
+lb.addEventListener('click', function(e){ if(e.target === this) closeLB(); });
+
+lbPrev.addEventListener('click', function(e){
+  e.stopPropagation();
+  var vis = visCards();
+  curIdx = (curIdx - 1 + vis.length) % vis.length;
+  showSlide(vis, curIdx);
+});
+lbNext.addEventListener('click', function(e){
+  e.stopPropagation();
+  var vis = visCards();
+  curIdx = (curIdx + 1) % vis.length;
+  showSlide(vis, curIdx);
+});
+
+document.addEventListener('keydown', function(e){
+  if(!lb.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLB();
+  if(e.key === 'ArrowLeft') lbPrev.click();
+  if(e.key === 'ArrowRight') lbNext.click();
+});
+
+// Touch swipe
+var tX = 0;
+lb.addEventListener('touchstart', function(e){ tX = e.changedTouches[0].clientX; });
+lb.addEventListener('touchend', function(e){
+  var d = tX - e.changedTouches[0].clientX;
+  if(Math.abs(d) > 50){ if(d > 0) lbNext.click(); else lbPrev.click(); }
+});
+
+// Scroll to top
+var tb = document.getElementById('topBtn');
+window.addEventListener('scroll', function(){ tb.style.display = window.scrollY > 350 ? 'flex' : 'none'; });
+
+// Navbar mobile close
+document.querySelectorAll('.nav-link').forEach(function(l){
+  l.addEventListener('click', function(){
+    var nc = document.querySelector('.navbar-collapse');
+    if(nc && nc.classList.contains('show')) new bootstrap.Collapse(nc).toggle();
+  });
+});
+</script>
+</body>
+</html>
